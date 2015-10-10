@@ -74,7 +74,7 @@
         </a></div><?php endif; ?>
         <?php else: ?>
         <h2 id="site-name">
-          <a href="<?php print $front_page; ?>" title="<?php print t('Home'); ?>"><?php print $site_name; ?></a>
+          <a href="<?php print $front_page; ?>" title="<?php print t('Home'); ?>"><?php print t($site_name); ?></a>
         </h2>
         <?php endif; ?>
       </div>

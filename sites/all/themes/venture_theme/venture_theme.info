@@ -4,6 +4,7 @@ core = 7.x
 engine = phptemplate
 stylesheets[all][] = style.css
 stylesheets[all][] = css/responsive.css
+stylesheets[all][] = css/custom.css
 scripts[] = js/retina.js
 scripts[] = js/plugins.js
 scripts[] = js/global.js
