@@ -35,11 +35,13 @@ function venture_theme_preprocess_page(&$vars) {
     $query = db_select('node','n')
       ->fields('n', array('nid'))
       ->condition('type', 'slider_item', '=')
-      ->range(0,3)
+      ->condition('status', 1, '=')
       ->execute();
-    $view = $query->fetchAssoc();
-
+    $view = $query->fetchAll();
     foreach($view as $item){
+      $items[] = $item->nid;
+    }
+      $item = $items[array_rand($items)];
       $node = node_load($item);
       $image_field = field_get_items('node', $node, 'field_image');
       $image = field_view_value('node', $node, 'field_image', $image_field[0]
@@ -47,13 +49,15 @@ function venture_theme_preprocess_page(&$vars) {
           'type' => 'image',
           'settings' => array(
             'image_style' => 'slider_item',
-            'image_link' => NULL)
+            'image_link' => NULL,
+            'width' => '100%',
+            'height' => '450px'
+          )
+
         )
       );
       $vars['images'][] = $image;
-    }
   }
-
   if (isset($vars['main_menu'])) {
     $vars['main_menu'] = theme('links__system_main_menu', array(
       'links' => $vars['main_menu'],

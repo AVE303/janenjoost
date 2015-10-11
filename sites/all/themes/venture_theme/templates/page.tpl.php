@@ -94,61 +94,76 @@
   </div>
 
   <?php if ($is_front): ?>
-  <?php if (theme_get_setting('slideshow_display','venture_theme')): ?>
-  <?php 
-    $slide1_head = check_plain(theme_get_setting('slide1_head','venture_theme'));   $slide1_desc = check_plain(theme_get_setting('slide1_desc','venture_theme')); $slide1_url = check_plain(theme_get_setting('slide1_url','venture_theme'));
-    $slide2_head = check_plain(theme_get_setting('slide2_head','venture_theme'));   $slide2_desc = check_plain(theme_get_setting('slide2_desc','venture_theme')); $slide2_url = check_plain(theme_get_setting('slide2_url','venture_theme'));
-    $slide3_head = check_plain(theme_get_setting('slide3_head','venture_theme'));   $slide3_desc = check_plain(theme_get_setting('slide3_desc','venture_theme')); $slide3_url = check_plain(theme_get_setting('slide3_url','venture_theme'));
-  ?>
+<!--  --><?php //if (theme_get_setting('slideshow_display','venture_theme')): ?>
+<!--  --><?php //
+////    $slide1_head = check_plain(theme_get_setting('slide1_head','venture_theme'));   $slide1_desc = check_plain(theme_get_setting('slide1_desc','venture_theme')); $slide1_url = check_plain(theme_get_setting('slide1_url','venture_theme'));
+////    $slide2_head = check_plain(theme_get_setting('slide2_head','venture_theme'));   $slide2_desc = check_plain(theme_get_setting('slide2_desc','venture_theme')); $slide2_url = check_plain(theme_get_setting('slide2_url','venture_theme'));
+////    $slide3_head = check_plain(theme_get_setting('slide3_head','venture_theme'));   $slide3_desc = check_plain(theme_get_setting('slide3_desc','venture_theme')); $slide3_url = check_plain(theme_get_setting('slide3_url','venture_theme'));
+//  ?>
+<!--  <div id="homepage-slider-wrap" class="clr flexslider-container">-->
+<!--    <div id="homepage-slider" class="flexslider">-->
+<!--      <ul class="slides clr">-->
+<!--        <li class="homepage-slider-slide">-->
+<!--          <a href="--><?php //print url($slide1_url); ?><!--">-->
+<!--            <div class="homepage-slide-inner container">-->
+<!--              --><?php //if($slide1_head || $slide1_desc) : ?>
+<!--              <div class="homepage-slide-content">-->
+<!--                <div class="homepage-slide-title">--><?php //print $slide1_head; ?><!--</div>-->
+<!--                <div class="clr"></div>-->
+<!--                <div class="homepage-slide-caption">--><?php //print $slide1_desc; ?><!--</div>-->
+<!--              </div>-->
+<!--              --><?php //endif; ?>
+<!--            </div>-->
+<!--            --><?php //print render($images[0])?render($images[0]):'<img src="'. base_path() . drupal_get_path('theme', 'venture_theme') . '/images/slide-image-1.jpg">'; ?>
+<!--          </a>-->
+<!--        </li>-->
+<!--        <li class="homepage-slider-slide">-->
+<!--          <a href="--><?php //print url($slide2_url); ?><!--">-->
+<!--            <div class="homepage-slide-inner container">-->
+<!--              --><?php //if($slide2_head || $slide2_desc) : ?>
+<!--              <div class="homepage-slide-content">-->
+<!--                <div class="homepage-slide-title">--><?php //print $slide2_head; ?><!--</div>-->
+<!--                <div class="clr"></div>-->
+<!--                <div class="homepage-slide-caption">--><?php //print $slide2_desc; ?><!--</div>-->
+<!--              </div>-->
+<!--              --><?php //endif; ?>
+<!--            </div>-->
+<!--            --><?php //print render($images[1])?render($images[1]):'<img src="'. base_path() . drupal_get_path('theme', 'venture_theme') . '/images/slide-image-2.jpg">'; ?>
+<!--          </a>-->
+<!--        </li>-->
+<!--        <li class="homepage-slider-slide">-->
+<!--          <a href="--><?php //print url($slide3_url); ?><!--">-->
+<!--            <div class="homepage-slide-inner container">-->
+<!--              --><?php //if($slide3_head || $slide3_desc) : ?>
+<!--              <div class="homepage-slide-content">-->
+<!--                <div class="homepage-slide-title">--><?php //print $slide3_head; ?><!--</div>-->
+<!--                <div class="clr"></div>-->
+<!--                <div class="homepage-slide-caption">--><?php //print $slide3_desc; ?><!--</div>-->
+<!--              </div>-->
+<!--              --><?php //endif; ?>
+<!--            </div>-->
+<!--            --><?php //print render($images[2])?render($images[2]):'<img src="'. base_path() . drupal_get_path('theme', 'venture_theme') . '/images/slide-image-3.jpg">'; ?>
+<!--          </a>-->
+<!--        </li>-->
+<!--      </ul>-->
+<!--    </div>-->
+<!--  </div>-->
+<!--  --><?php //endif; ?>
+    <?php if(isset($images)):?>
   <div id="homepage-slider-wrap" class="clr flexslider-container">
     <div id="homepage-slider" class="flexslider">
       <ul class="slides clr">
-        <li class="homepage-slider-slide">
-          <a href="<?php print url($slide1_url); ?>">
-            <div class="homepage-slide-inner container">
-              <?php if($slide1_head || $slide1_desc) : ?>
-              <div class="homepage-slide-content">
-                <div class="homepage-slide-title"><?php print $slide1_head; ?></div>
-                <div class="clr"></div>
-                <div class="homepage-slide-caption"><?php print $slide1_desc; ?></div>
-              </div>
-              <?php endif; ?>
+        <?php foreach($images as $image):?>
+          <li class="homepage-slider-slide">
+            <div class="homepage-slide-inner ">
+              <?php print render($image);?>
             </div>
-            <?php print render($images[0])?render($images[0]):'<img src="'. base_path() . drupal_get_path('theme', 'venture_theme') . '/images/slide-image-1.jpg">'; ?>
-          </a>
-        </li>
-        <li class="homepage-slider-slide">
-          <a href="<?php print url($slide2_url); ?>">
-            <div class="homepage-slide-inner container">
-              <?php if($slide2_head || $slide2_desc) : ?>
-              <div class="homepage-slide-content">
-                <div class="homepage-slide-title"><?php print $slide2_head; ?></div>
-                <div class="clr"></div>
-                <div class="homepage-slide-caption"><?php print $slide2_desc; ?></div>
-              </div>
-              <?php endif; ?>
-            </div>
-            <?php print render($images[1])?render($images[1]):'<img src="'. base_path() . drupal_get_path('theme', 'venture_theme') . '/images/slide-image-2.jpg">'; ?>
-          </a>
-        </li>
-        <li class="homepage-slider-slide">
-          <a href="<?php print url($slide3_url); ?>">
-            <div class="homepage-slide-inner container">
-              <?php if($slide3_head || $slide3_desc) : ?>
-              <div class="homepage-slide-content">
-                <div class="homepage-slide-title"><?php print $slide3_head; ?></div>
-                <div class="clr"></div>
-                <div class="homepage-slide-caption"><?php print $slide3_desc; ?></div>
-              </div>
-              <?php endif; ?>
-            </div>
-            <?php print render($images[2])?render($images[2]):'<img src="'. base_path() . drupal_get_path('theme', 'venture_theme') . '/images/slide-image-3.jpg">'; ?>
-          </a>
-        </li>
+          </li>
+        <?php endforeach;?>
       </ul>
-    </div>
+    <?php endif;?>
+      </div>
   </div>
-  <?php endif; ?>
   <?php endif; ?>
 
 
